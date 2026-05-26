@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STAN | Digital Architect</title>
+    <title>STAN | Automation & Digital Operations Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,105 +12,433 @@
             --neon: #00d2ff;
             --gold: #d4af37;
             --text: #ffffff;
+            --text-muted: #888899;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); overflow-x: hidden; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+        }
+        
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
         /* Premium Logo */
+        header {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo { 
-            font-size: 3rem; font-weight: 900; letter-spacing: -2px;
+            font-size: 2.5rem; 
+            font-weight: 900; 
+            letter-spacing: 2px;
             background: linear-gradient(to right, #fff, var(--gold));
-            -webkit-background-clip: text; color: transparent;
+            -webkit-background-clip: text; 
+            color: transparent;
             filter: drop-shadow(0 0 10px rgba(212,175,55,0.3));
+        }
+
+        /* Top Navigation Icons */
+        .icon-grid { display: flex; gap: 1.5rem; }
+        .icon-link { 
+            font-size: 1.5rem; 
+            color: var(--text); 
+            transition: 0.3s; 
+            padding: 0.8rem; 
+            border-radius: 50%;
+            background: var(--glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .icon-link:hover { 
+            color: var(--neon); 
+            border-color: var(--neon);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+            transform: translateY(-3px); 
+        }
+
+        /* Hero Section */
+        .hero { padding: 100px 0 80px; }
+        .hero h1 { 
+            font-size: clamp(2rem, 4vw, 3.5rem); 
+            line-height: 1.2; 
+            margin-bottom: 1rem; 
+            font-weight: 800;
+        }
+        .hero-text { 
+            color: var(--neon); 
+            font-size: 1.5rem; 
+            margin-bottom: 2rem; 
+            height: 2.5rem;
+            font-weight: 600;
+        }
+        .hero-desc { 
+            max-width: 700px; 
+            font-size: 1.1rem; 
+            color: var(--text-muted); 
+            margin-bottom: 2.5rem; 
         }
 
         /* Glassmorphism Cards */
         .glass-card {
             background: var(--glass);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 2.5rem;
-            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
         .glass-card:hover {
             border-color: var(--neon);
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
-            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        .glass-card h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .glass-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        /* Icon Grid */
-        .icon-grid { display: flex; gap: 2rem; justify-content: center; margin-top: 2rem; }
-        .icon-link { 
-            font-size: 2rem; color: var(--text); 
-            transition: 0.3s; padding: 1rem; border-radius: 50%;
-            background: var(--glass);
+        /* Grids */
+        .section-padding { padding: 80px 0; }
+        .section-title { 
+            font-size: 2.5rem; 
+            margin-bottom: 3rem; 
+            text-align: center; 
+            color: #fff; 
         }
-        .icon-link:hover { color: var(--neon); transform: scale(1.2); }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
-        /* Typography */
-        h1 { font-size: 4rem; line-height: 1; margin-bottom: 1rem; }
-        .hero-text { color: var(--neon); font-size: 1.5rem; margin-bottom: 2rem; }
+        /* Timeline Specifics */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
+        .timeline::before { 
+            content: ''; 
+            position: absolute; 
+            left: 20px; 
+            top: 0; 
+            height: 100%; 
+            width: 2px; 
+            background: rgba(255, 255, 255, 0.1); 
+        }
+        .timeline-item { position: relative; padding-left: 60px; margin-bottom: 3rem; }
+        .timeline-item::before { 
+            content: ''; 
+            position: absolute; 
+            left: 14px; 
+            top: 25px; 
+            width: 14px; 
+            height: 14px; 
+            border-radius: 50%; 
+            background: var(--neon); 
+            box-shadow: 0 0 10px var(--neon); 
+        }
+        .timeline-role { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem;}
+        .timeline-company { color: var(--gold); font-weight: 600; margin-bottom: 1rem; font-size: 0.9rem;}
+        .timeline-ref { 
+            font-size: 0.85rem; 
+            background: rgba(255, 255, 255, 0.02); 
+            padding: 0.8rem; 
+            border-left: 2px solid var(--gold);
+            margin-top: 1rem;
+            color: #aaa;
+        }
 
-        /* Contact Icon Grid */
-        .contact-grid { display: flex; gap: 3rem; justify-content: center; margin-top: 3rem; }
-        .contact-item { text-align: center; }
-        .contact-item i { font-size: 2.5rem; margin-bottom: 1rem; display: block; color: var(--gold); }
+        .project-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--neon);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .project-link:hover { text-shadow: 0 0 10px var(--neon); }
 
         /* Marquee */
-        .marquee { overflow: hidden; white-space: nowrap; padding: 2rem 0; border-top: 1px solid #333; border-bottom: 1px solid #333; }
-        .marquee-inner { display: inline-block; animation: scroll 20s linear infinite; font-size: 1.5rem; font-weight: 800; color: #444; }
+        .marquee { 
+            overflow: hidden; 
+            white-space: nowrap; 
+            padding: 2rem 0; 
+            border-top: 1px solid rgba(212, 175, 55, 0.2); 
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+            background: rgba(20,20,24,0.5);
+            margin: 60px 0;
+        }
+        .marquee-inner { 
+            display: inline-block; 
+            animation: scroll 30s linear infinite; 
+            font-size: 1.2rem; 
+            font-weight: 700; 
+            color: var(--text-muted); 
+            letter-spacing: 2px;
+        }
+        .marquee-inner span { margin: 0 2rem; color: var(--gold); }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        /* Contact Section */
+        .contact-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+        .contact-item { 
+            text-align: center; 
+            width: 150px;
+        }
+        .contact-item i { 
+            font-size: 2.5rem; 
+            margin-bottom: 1rem; 
+            display: block; 
+            color: var(--gold); 
+            transition: 0.3s;
+        }
+        .contact-item:hover i { color: var(--neon); transform: scale(1.1); filter: drop-shadow(0 0 10px var(--neon));}
+        .contact-item span { font-size: 0.9rem; font-weight: 600; color: #fff; }
+
+        @media (max-width: 768px) {
+            .timeline::before { left: 10px; }
+            .timeline-item { padding-left: 40px; }
+            .timeline-item::before { left: 4px; }
+            .hero h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="container" style="padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+    <header class="container">
         <div class="logo">STAN</div>
-        <nav>
-            <div class="icon-grid">
-                <a href="https://www.linkedin.com/in/stanbanilao" class="icon-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.tiktok.com/@stanmcfast" class="icon-link"><i class="fab fa-tiktok"></i></a>
-            </div>
+        <nav class="icon-grid">
+            <a href="https://www.linkedin.com/in/stanbanilao" target="_blank" class="icon-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.tiktok.com/@stanmcfast" target="_blank" class="icon-link"><i class="fab fa-tiktok"></i></a>
         </nav>
     </header>
 
-    <main class="container">
-        <section style="padding: 100px 0;">
-            <h1>AUTOMATION & OPERATIONS<br><span style="color:var(--gold)">ARCHITECT</span></h1>
-            <div class="hero-text" id="typewriter"></div>
-            <p style="max-width: 600px; font-size: 1.2rem; color: #aaa;">Bridging AI integration with enterprise-grade operational infrastructure.</p>
+    <main>
+        <section class="hero container">
+            <h1>AUTOMATION & DIGITAL OPERATIONS SPECIALIST<br><span style="color:var(--gold)">| AI INTEGRATION & APP DEVELOPMENT</span></h1>
+            
+            <div class="hero-text">
+                <span id="typewriter"></span><span class="cursor" style="color:#fff;">|</span>
+            </div>
+
+            <p class="hero-desc">
+                Operational Specialist bridging technology and business strategy. Expertise in workflow automation, database management, data auditing, and digital infrastructure to eliminate operational bottlenecks, enforce compliance, and optimize business processes.
+            </p>
+        </section>
+
+        <section class="section-padding container">
+            <h2 class="section-title">Core Capabilities</h2>
+            <div class="grid-4">
+                <div class="glass-card">
+                    <h3>Workflow Automation</h3>
+                    <p>Power Automate, Webhooks, WhatAuto orchestration.</p>
+                </div>
+                <div class="glass-card">
+                    <h3>Data Infrastructure</h3>
+                    <p>SharePoint, Microsoft 365, Firebase, GitHub, Google Apps Script.</p>
+                </div>
+                <div class="glass-card">
+                    <h3>Communications Architecture</h3>
+                    <p>WhatsApp Business API integration, automated routing pipelines.</p>
+                </div>
+                <div class="glass-card">
+                    <h3>Operations & Compliance</h3>
+                    <p>Process mapping, data auditing, statutory compliance frameworks (Form 17.1 / 17.W).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding container">
+            <h2 class="section-title">Experience & References</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="glass-card">
+                        <div class="timeline-role">Automation & Systems Architect</div>
+                        <div class="timeline-company">Thynkverse (2022 - Present)</div>
+                        <p>Designing growth ecosystems, managing full-stack digital assets, and deploying integrated operational workflows for digital brands.</p>
+                        <div class="timeline-ref">
+                            <strong>Reference:</strong> Founder & Lead Architect – View Live Operations at <a href="https://thynkverse.co.za" target="_blank" style="color:var(--neon)">thynkverse.co.za</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="glass-card">
+                        <div class="timeline-role">Content Creator / Operations Manager</div>
+                        <div class="timeline-company">MBCOMMS / Control Debt Solutions / Premium Debt Solutions (2024 - 2025)</div>
+                        <p>Designed custom SharePoint data infrastructures, built automated audit trails via Google Apps Script, and deployed Power Automate pipelines that cut case processing times and logistics administration.</p>
+                        <div class="timeline-ref">
+                            <strong>Reference:</strong> Moeneeb Reddy, Director | 072 932 0015
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="glass-card">
+                        <div class="timeline-role">Production Assistant</div>
+                        <div class="timeline-company">MECAFE (2022 - 2023)</div>
+                        <p>Handled operational coordination, workflow execution tracking, and structural efficiency support.</p>
+                        <div class="timeline-ref">
+                            <strong>Reference:</strong> Washeemah Isaacs, Co-owner | 083 943 0629
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="glass-card">
+                        <div class="timeline-role">Operations & Compliance Manager</div>
+                        <div class="timeline-company">ALPHA GROUPS / Alpha Debt Management / My Debt Assistant (2018 - 2024)</div>
+                        <p>Managed critical regulatory operational workflows, executed high-volume compliance auditing, and optimized backend customer data routing pipelines.</p>
+                        <div class="timeline-ref">
+                            <strong>Reference:</strong> Areeb Johaar, Co-owner | 079 611 1816
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="glass-card">
+                        <div class="timeline-role">Assistant Manager</div>
+                        <div class="timeline-company">MSA (2016 - 2018)</div>
+                        <p>Foundational operational leadership, team shift coordination, and process supervisor execution.</p>
+                        <div class="timeline-ref">
+                            <strong>Reference:</strong> Moeghammad Lamara, Owner | 067 944 6566
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section-padding container">
+            <h2 class="section-title">Technical Projects</h2>
+            <div class="grid-3">
+                <div class="glass-card">
+                    <h3>ThynkDebtTrack Client Portal</h3>
+                    <p>Automated client portal application for secure data ingestion, statutory tracking, and debt review processing.</p>
+                    <a href="https://www.remedydebts.co.za/portal/" target="_blank" class="project-link">View Portal →</a>
+                </div>
+                <div class="glass-card">
+                    <h3>Automated Audit Trail Engine</h3>
+                    <p>A custom integration using Google Apps Script to securely shoot data from live sheets directly into SharePoint infrastructure for real-time compliance logging.</p>
+                </div>
+                <div class="glass-card">
+                    <h3>WhatsApp Automation Suite</h3>
+                    <p>An automated response and routing framework utilizing the WhatsApp Business API and mobile-optimized interfaces to accelerate communication response.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding container">
+            <h2 class="section-title">Creative & Personal Insights</h2>
+            <div class="grid-2">
+                <div class="glass-card">
+                    <h3>Digital Media</h3>
+                    <p>Photography, video editing, and content design executing visual narratives.</p>
+                </div>
+                <div class="glass-card">
+                    <h3>Strategic Thinking</h3>
+                    <p>Competitive gaming and tactical problem-solving requiring rapid decision making under pressure.</p>
+                </div>
+            </div>
         </section>
 
         <section class="marquee">
             <div class="marquee-inner">
-                POWER AUTOMATE • MAKE.COM • SHAREPOINT • AI AUTOMATION • PYTHON • GOOGLE APPS SCRIPT • WHATSAPP API • SQL • PROMPT ENGINEERING
+                POWER AUTOMATE <span>•</span> MAKE.COM <span>•</span> SHAREPOINT <span>•</span> GOOGLE APPS SCRIPT <span>•</span> FIREBASE <span>•</span> GITHUB <span>•</span> WHATSAPP BUSINESS API <span>•</span> MICROSOFT 365 <span>•</span> POWER BI <span>•</span> AZURE <span>•</span> META ADS <span>•</span> SQL <span>•</span> AI AUTOMATION <span>•</span> PROMPT CONSULTANT <span>•</span>
+                POWER AUTOMATE <span>•</span> MAKE.COM <span>•</span> SHAREPOINT <span>•</span> GOOGLE APPS SCRIPT <span>•</span> FIREBASE <span>•</span> GITHUB <span>•</span> WHATSAPP BUSINESS API <span>•</span> MICROSOFT 365 <span>•</span> POWER BI <span>•</span> AZURE <span>•</span> META ADS <span>•</span> SQL <span>•</span> AI AUTOMATION <span>•</span> PROMPT CONSULTANT
             </div>
         </section>
 
-        <section style="padding: 100px 0;">
-            <h2 style="text-align: center; margin-bottom: 3rem;">DIRECT ARCHITECT ACCESS</h2>
+        <section class="section-padding container">
+            <h2 class="section-title">Initiate Contact</h2>
             <div class="contact-grid">
-                <a href="tel:0812795215" class="contact-item"><i class="fas fa-phone"></i><span>Voice</span></a>
-                <a href="https://wa.me/27812795215" class="contact-item"><i class="fab fa-whatsapp"></i><span>Personal</span></a>
-                <a href="https://wa.me/27826836364" class="contact-item"><i class="fas fa-briefcase"></i><span>Business</span></a>
-                <a href="mailto:stan@thynkverse.co.za" class="contact-item"><i class="fas fa-envelope"></i><span>Email</span></a>
+                <a href="tel:0812795215" class="glass-card contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>Voice</span>
+                </a>
+                <a href="https://wa.me/27812795215" target="_blank" class="glass-card contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Personal WA</span>
+                </a>
+                <a href="https://wa.me/27826836364" target="_blank" class="glass-card contact-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Business WA</span>
+                </a>
+                <a href="mailto:stan@thynkverse.co.za" class="glass-card contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
             </div>
         </section>
     </main>
 
     <script>
-        const phrases = ['Automation Specialist', 'AI Integration Expert', 'App Developer', 'Data Operations Lead'];
-        let i = 0, j = 0;
+        // Typewriter Effect
+        const phrases = [
+            'Automation Specialist', 
+            'Systems Optimizer', 
+            'Data Operations Lead', 
+            'Compliance Infrastructure Specialist'
+        ];
+        
+        const textElement = document.getElementById('typewriter');
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
         function type() {
-            document.getElementById('typewriter').innerText = phrases[i].substring(0, j);
-            j < phrases[i].length ? j++ : (j = 0, i = (i + 1) % phrases.length);
-            setTimeout(type, 150);
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.innerText = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.innerText = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            setTimeout(type, typeSpeed);
         }
-        type();
+        
+        setTimeout(type, 1000);
+
+        setInterval(() => {
+            const cursor = document.querySelector('.cursor');
+            if(cursor) cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+        }, 500);
     </script>
 </body>
 </html>
