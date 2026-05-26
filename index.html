@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STAN | Automation & Digital Operations Specialist</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300d2ff%22 font-family=%22sans-serif%22 font-weight=%22900%22>S</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -12,6 +13,7 @@
             --glass: rgba(255, 255, 255, 0.02);
             --glass-border: rgba(255, 255, 255, 0.08);
             --neon: #00d2ff;
+            --neon-dim: rgba(0, 210, 255, 0.5);
             --gold: #d4af37;
             --text-main: #ffffff;
             --text-muted: #94a3b8;
@@ -42,17 +44,14 @@
             z-index: -2;
         }
 
-        .bg-spotlight {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: radial-gradient(circle 600px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(0, 210, 255, 0.07), transparent 40%);
-            z-index: -1;
-            pointer-events: none;
-            transition: background 0.1s ease;
-        }
-
         h1, h2, h3, .logo { font-family: 'Outfit', sans-serif; }
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* Subtle Text Glow on Hover */
+        .glow-text:hover {
+            color: var(--neon);
+            text-shadow: 0 0 8px var(--neon-dim);
+        }
 
         .container {
             max-width: 1200px;
@@ -60,50 +59,86 @@
             padding: 0 2rem;
         }
 
-        /* Premium Glowing Logo */
+        /* --- Sticky Header --- */
         header {
-            padding-top: 2.5rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: rgba(3, 3, 5, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
         }
 
+        /* Shining Logo */
         .logo { 
-            font-size: 2.8rem; 
+            font-size: 2.2rem; 
             font-weight: 900; 
             letter-spacing: 3px;
-            color: #ffffff;
-            text-shadow: 
-                0 0 10px rgba(255, 255, 255, 0.8),
-                0 0 20px rgba(255, 255, 255, 0.5),
-                0 0 40px rgba(0, 210, 255, 0.6);
+            background: linear-gradient(90deg, #555 0%, #fff 50%, #555 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
-        /* Top Navigation Icons */
-        .icon-grid { display: flex; gap: 1.5rem; }
+        /* Navigation */
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-links a:hover {
+            color: var(--neon);
+            text-shadow: 0 0 10px var(--neon-dim);
+        }
+
         .icon-link { 
-            font-size: 1.5rem; 
+            font-size: 1.2rem; 
             color: var(--text-main); 
-            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 55px;
-            height: 55px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
         }
         .icon-link:hover { 
             color: var(--neon); 
             border-color: var(--neon);
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-            transform: translateY(-5px); 
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+            transform: translateY(-2px); 
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
-        .hero { padding: 120px 0 80px; }
+        .hero { padding: 180px 0 100px; }
         .hero h1 { 
             font-size: clamp(2.5rem, 5vw, 4.5rem); 
             line-height: 1.1; 
@@ -126,7 +161,7 @@
             margin-bottom: 2.5rem; 
         }
 
-        /* Glassmorphism Cards (Smooth Boxes) */
+        /* Glassmorphism Cards */
         .glass-card {
             background: var(--glass);
             backdrop-filter: blur(20px);
@@ -134,24 +169,13 @@
             border: 1px solid var(--glass-border);
             padding: 2.5rem;
             border-radius: 16px;
-            transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: 0.4s ease;
             position: relative;
             overflow: hidden;
         }
-        /* Inner Glow effect on hover */
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-            transition: 0.5s;
-        }
-        .glass-card:hover::before { left: 100%; }
-        
         .glass-card:hover {
             border-color: rgba(0, 210, 255, 0.4);
-            box-shadow: 0 10px 40px rgba(0, 210, 255, 0.1);
+            box-shadow: 0 5px 30px rgba(0, 210, 255, 0.1);
             transform: translateY(-8px);
         }
         .glass-card h3 {
@@ -159,12 +183,31 @@
             margin-bottom: 1rem;
             font-size: 1.3rem;
             letter-spacing: 0.5px;
+            transition: 0.3s;
+        }
+        .glass-card:hover h3 {
+            color: var(--neon);
+            text-shadow: 0 0 8px var(--neon-dim);
         }
 
-        /* Scroll Reveal Animation Classes */
+        /* Alive Capabilities Icons */
+        .capability-icon {
+            font-size: 2.5rem;
+            color: var(--neon);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Continuous Scroll Reveal */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(60px);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
@@ -181,7 +224,7 @@
             color: #fff;
             font-weight: 800; 
         }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
 
@@ -226,7 +269,6 @@
             margin-top: 1.5rem;
             color: var(--neon);
             font-weight: 600;
-            transition: 0.3s;
             font-family: 'Outfit', sans-serif;
             letter-spacing: 1px;
         }
@@ -273,7 +315,6 @@
             gap: 1.5rem;
             padding: 1.5rem;
             text-align: left;
-            text-decoration: none;
         }
         .contact-item i { 
             font-size: 2rem; 
@@ -281,10 +322,11 @@
             transition: 0.3s;
         }
         .contact-item:hover i { color: var(--neon); filter: drop-shadow(0 0 10px var(--neon));}
-        .contact-item span { font-size: 1.1rem; font-weight: 600; color: #fff; }
+        .contact-item span { font-size: 1.1rem; font-weight: 600; color: #fff; transition: 0.3s; }
+        .contact-item:hover span { color: var(--neon); }
         .contact-item small { display: block; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem; }
 
-        /* Glassmorphism Form */
+        /* Form */
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -332,23 +374,47 @@
         }
 
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(3, 3, 5, 0.95);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                border-bottom: 1px solid var(--glass-border);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
             .timeline::before { left: 10px; }
             .timeline-item { padding-left: 40px; }
             .timeline-item::before { left: 4px; top: 30px; }
             .hero h1 { font-size: 2.2rem; }
+            header { padding: 0 1.5rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="bg-grid"></div>
-    <div class="bg-spotlight" id="spotlight"></div>
 
-    <header class="container">
-        <div class="logo">STAN</div>
-        <nav class="icon-grid">
-            <a href="https://www.linkedin.com/in/stanbanilao" target="_blank" class="icon-link"><i class="fab fa-linkedin-in"></i></a>
-        </nav>
+    <header>
+        <div class="container" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+            <a href="#" class="logo">STAN</a>
+            
+            <div class="nav-wrapper">
+                <nav class="nav-links" id="nav-links">
+                    <a href="#capabilities">Capabilities</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <a href="https://www.linkedin.com/in/stanbanilao" target="_blank" class="icon-link"><i class="fab fa-linkedin-in"></i></a>
+                <button class="mobile-menu-btn" id="mobile-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -364,46 +430,50 @@
             </p>
         </section>
 
-        <section class="section-padding container">
-            <h2 class="section-title reveal">Core Capabilities</h2>
+        <section id="capabilities" class="section-padding container">
+            <h2 class="section-title reveal glow-text">Core Capabilities</h2>
             <div class="grid-4">
                 <div class="glass-card reveal">
+                    <i class="fas fa-cogs capability-icon"></i>
                     <h3>Workflow Automation</h3>
                     <p>Power Automate, Webhooks, WhatAuto orchestration.</p>
                 </div>
                 <div class="glass-card reveal">
+                    <i class="fas fa-database capability-icon"></i>
                     <h3>Data Infrastructure</h3>
                     <p>SharePoint, Microsoft 365, Firebase, GitHub, Google Apps Script.</p>
                 </div>
                 <div class="glass-card reveal">
+                    <i class="fas fa-network-wired capability-icon"></i>
                     <h3>Communications Architecture</h3>
                     <p>WhatsApp Business API integration, automated routing pipelines.</p>
                 </div>
                 <div class="glass-card reveal">
+                    <i class="fas fa-shield-alt capability-icon"></i>
                     <h3>Operations & Compliance</h3>
                     <p>Process mapping, data auditing, statutory compliance frameworks (Form 17.1 / 17.W).</p>
                 </div>
             </div>
         </section>
 
-        <section class="section-padding container">
-            <h2 class="section-title reveal">Experience & References</h2>
+        <section id="experience" class="section-padding container">
+            <h2 class="section-title reveal glow-text">Experience & References</h2>
             <div class="timeline">
                 
                 <div class="timeline-item reveal">
                     <div class="glass-card">
-                        <div class="timeline-role">Automation & Systems Architect</div>
+                        <div class="timeline-role glow-text">Automation & Systems Architect</div>
                         <div class="timeline-company">Thynkverse (2022 - Present)</div>
                         <p>Designing growth ecosystems, managing full-stack digital assets, and deploying integrated operational workflows for digital brands.</p>
                         <div class="timeline-ref">
-                            <strong>Reference:</strong> Founder & Lead Architect – View Live Operations at <a href="https://thynkverse.co.za" target="_blank" style="color:var(--neon)">thynkverse.co.za</a>
+                            <strong>Reference:</strong> Founder & Lead Architect – View Live Operations at <a href="https://thynkverse.co.za" target="_blank" class="glow-text" style="color:var(--neon)">thynkverse.co.za</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="timeline-item reveal">
                     <div class="glass-card">
-                        <div class="timeline-role">Content Creator / Operations Manager</div>
+                        <div class="timeline-role glow-text">Content Creator / Operations Manager</div>
                         <div class="timeline-company">MBCOMMS / Control Debt Solutions / Premium Debt Solutions (2024 - 2025)</div>
                         <p>Designed custom SharePoint data infrastructures, built automated audit trails via Google Apps Script, and deployed Power Automate pipelines that cut case processing times and logistics administration.</p>
                         <div class="timeline-ref">
@@ -414,7 +484,7 @@
 
                 <div class="timeline-item reveal">
                     <div class="glass-card">
-                        <div class="timeline-role">Production Assistant</div>
+                        <div class="timeline-role glow-text">Production Assistant</div>
                         <div class="timeline-company">MECAFE (2022 - 2023)</div>
                         <p>Handled operational coordination, workflow execution tracking, and structural efficiency support.</p>
                         <div class="timeline-ref">
@@ -425,7 +495,7 @@
 
                 <div class="timeline-item reveal">
                     <div class="glass-card">
-                        <div class="timeline-role">Operations & Compliance Manager</div>
+                        <div class="timeline-role glow-text">Operations & Compliance Manager</div>
                         <div class="timeline-company">ALPHA GROUPS / Alpha Debt Management / My Debt Assistant (2018 - 2024)</div>
                         <p>Managed critical regulatory operational workflows, executed high-volume compliance auditing, and optimized backend customer data routing pipelines.</p>
                         <div class="timeline-ref">
@@ -436,7 +506,7 @@
 
                 <div class="timeline-item reveal">
                     <div class="glass-card">
-                        <div class="timeline-role">Assistant Manager</div>
+                        <div class="timeline-role glow-text">Assistant Manager</div>
                         <div class="timeline-company">MSA (2016 - 2018)</div>
                         <p>Foundational operational leadership, team shift coordination, and process supervisor execution.</p>
                         <div class="timeline-ref">
@@ -448,8 +518,8 @@
             </div>
         </section>
 
-        <section class="section-padding container">
-            <h2 class="section-title reveal">Technical Projects</h2>
+        <section id="projects" class="section-padding container">
+            <h2 class="section-title reveal glow-text">Technical Projects</h2>
             <div class="grid-3">
                 <div class="glass-card reveal">
                     <h3>ThynkDebtTrack Client Portal</h3>
@@ -468,7 +538,7 @@
         </section>
 
         <section class="section-padding container">
-            <h2 class="section-title reveal">Creative & Personal Insights</h2>
+            <h2 class="section-title reveal glow-text">Creative & Personal Insights</h2>
             <div class="grid-2">
                 <div class="glass-card reveal">
                     <h3>Digital Media</h3>
@@ -488,8 +558,8 @@
             </div>
         </section>
 
-        <section class="section-padding container" id="contact">
-            <h2 class="section-title reveal">Let's Optimize Your Infrastructure</h2>
+        <section id="contact" class="section-padding container">
+            <h2 class="section-title reveal glow-text">Let's Optimize Your Infrastructure</h2>
             
             <div class="contact-container">
                 <div class="contact-methods reveal">
@@ -524,7 +594,7 @@
                 </div>
 
                 <div class="glass-card reveal">
-                    <h3 style="color: #fff; margin-bottom: 1.5rem; font-family: 'Outfit';">Send a Message</h3>
+                    <h3 style="color: #fff; margin-bottom: 1.5rem;">Send a Message</h3>
                     <form class="contact-form" onsubmit="event.preventDefault(); alert('Message feature ready to connect to Make.com/Power Automate!');">
                         <input type="text" class="form-input" placeholder="Your Name" required>
                         <input type="email" class="form-input" placeholder="Your Email Address" required>
@@ -537,27 +607,29 @@
     </main>
 
     <script>
-        // 1. Mouse Spotlight Tracker
-        const spotlight = document.getElementById('spotlight');
-        window.addEventListener('mousemove', (e) => {
-            spotlight.style.setProperty('--mouse-x', `${e.clientX}px`);
-            spotlight.style.setProperty('--mouse-y', `${e.clientY}px`);
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-btn');
+        const navLinks = document.getElementById('nav-links');
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
-        // 2. Scroll Reveal Animations (Intersection Observer)
+        // Dynamic Scroll Reveal (Bi-directional)
         const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, observer) => {
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                // Toggles the class on when in view, off when out of view
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Run animation once
+                } else {
+                    entry.target.classList.remove('active');
                 }
             });
-        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        }, { threshold: 0.1, rootMargin: "0px" });
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // 3. Typewriter Effect
+        // Typewriter Effect
         const phrases = [
             'Automation Specialist', 
             'Systems Optimizer', 
