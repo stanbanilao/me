@@ -1,695 +1,116 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stan | Automation & Digital Operations Specialist</title>
+    <title>STAN | Digital Architect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #0a0a0c;
-            --bg-card: #141418;
-            --text-main: #e0e0e0;
-            --text-muted: #888899;
-            --accent-gold: #d4af37;
-            --accent-cyan: #00d2ff;
-            --border-glow: rgba(0, 210, 255, 0.3);
-            --gold-glow: rgba(212, 175, 55, 0.3);
-            --transition: all 0.3s ease;
+            --bg: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --neon: #00d2ff;
+            --gold: #d4af37;
+            --text: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); overflow-x: hidden; }
+
+        /* Premium Logo */
+        .logo { 
+            font-size: 3rem; font-weight: 900; letter-spacing: -2px;
+            background: linear-gradient(to right, #fff, var(--gold));
+            -webkit-background-clip: text; color: transparent;
+            filter: drop-shadow(0 0 10px rgba(212,175,55,0.3));
         }
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        .glass-card:hover {
+            border-color: var(--neon);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+            transform: translateY(-10px);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        /* Icon Grid */
+        .icon-grid { display: flex; gap: 2rem; justify-content: center; margin-top: 2rem; }
+        .icon-link { 
+            font-size: 2rem; color: var(--text); 
+            transition: 0.3s; padding: 1rem; border-radius: 50%;
+            background: var(--glass);
         }
+        .icon-link:hover { color: var(--neon); transform: scale(1.2); }
 
-        /* --- Header & Navigation --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 12, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        /* Typography */
+        h1 { font-size: 4rem; line-height: 1; margin-bottom: 1rem; }
+        .hero-text { color: var(--neon); font-size: 1.5rem; margin-bottom: 2rem; }
 
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
+        /* Contact Icon Grid */
+        .contact-grid { display: flex; gap: 3rem; justify-content: center; margin-top: 3rem; }
+        .contact-item { text-align: center; }
+        .contact-item i { font-size: 2.5rem; margin-bottom: 1rem; display: block; color: var(--gold); }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, #fff 0%, #aaa 50%, #fff 100%);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: shine 3s linear infinite;
-        }
+        /* Marquee */
+        .marquee { overflow: hidden; white-space: nowrap; padding: 2rem 0; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+        .marquee-inner { display: inline-block; animation: scroll 20s linear infinite; font-size: 1.5rem; font-weight: 800; color: #444; }
 
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-cyan);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-main);
-            background: none;
-            border: none;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 150px 0 80px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .typewriter-container {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--accent-cyan);
-            height: 2.5rem;
-        }
-
-        .hero-desc {
-            max-width: 700px;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-btn {
-            padding: 0.8rem 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .social-btn:hover {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 15px var(--border-glow);
-            transform: translateY(-2px);
-        }
-
-        /* --- Core Capabilities (Grid) --- */
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-gold);
-        }
-
-        .section-padding {
-            padding: 100px 0;
-        }
-
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--border-glow);
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* --- Experience Timeline --- */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 60px;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 14px;
-            top: 5px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--accent-cyan);
-            box-shadow: 0 0 10px var(--accent-cyan);
-        }
-
-        .timeline-role {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .timeline-company {
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-details {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .timeline-ref {
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 0.8rem;
-            border-left: 3px solid var(--accent-gold);
-        }
-
-        /* --- Projects & Insights --- */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--accent-cyan);
-            border-bottom: 1px solid transparent;
-            transition: var(--transition);
-        }
-        
-        .project-link:hover {
-            border-bottom-color: var(--accent-cyan);
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        /* --- Marquee --- */
-        .marquee-wrapper {
-            background: linear-gradient(90deg, rgba(20,20,24,1) 0%, rgba(30,30,35,1) 50%, rgba(20,20,24,1) 100%);
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 1.5rem 0;
-            overflow: hidden;
-            position: relative;
-            white-space: nowrap;
-        }
-
-        .marquee-content {
-            display: inline-block;
-            animation: scroll 30s linear infinite;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-        }
-
-        .marquee-content span {
-            margin: 0 2rem;
-            color: var(--accent-gold);
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* --- Contact Section --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-btn {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.2rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: var(--transition);
-            font-weight: 600;
-        }
-
-        .contact-btn:hover {
-            border-color: var(--accent-cyan);
-            background: rgba(0, 210, 255, 0.05);
-            transform: translateY(-3px);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            color: #fff;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 10px var(--gold-glow);
-        }
-
-        .submit-btn {
-            background: transparent;
-            color: var(--accent-cyan);
-            border: 1px solid var(--accent-cyan);
-            padding: 1rem;
-            cursor: pointer;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        .submit-btn:hover {
-            background: var(--accent-cyan);
-            color: #000;
-            box-shadow: 0 0 20px var(--border-glow);
-        }
-
-        /* --- Mobile Responsiveness --- */
-        @media (max-width: 900px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: var(--bg-dark);
-                flex-direction: column;
-                align-items: center;
-                padding-top: 2rem;
-                transition: var(--transition);
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .social-links {
-                flex-direction: column;
-            }
-            
-            .timeline::before {
-                left: 10px;
-            }
-            
-            .timeline-item {
-                padding-left: 40px;
-            }
-            
-            .timeline-item::before {
-                left: 4px;
-            }
-        }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container nav-wrapper">
-            <a href="#" class="logo">STAN</a>
-            <button class="mobile-menu-btn" id="menuBtn">☰</button>
-            <nav class="nav-links" id="navLinks">
-                <a href="#hero">Home</a>
-                <a href="#capabilities">Capabilities</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
+    <header class="container" style="padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <div class="logo">STAN</div>
+        <nav>
+            <div class="icon-grid">
+                <a href="https://www.linkedin.com/in/stanbanilao" class="icon-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@stanmcfast" class="icon-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </nav>
     </header>
 
-    <main>
-        <section id="hero" class="hero container">
-            <div>
-                <h1 class="hero-title">A U T O M A T I O N  &  D I G I T A L  O P E R A T I O N S  S P E C I A L I S T <br> | A I  I N T E G R A T I O N  &  A P P  D E V E L O P M E N T</h1>
-                <h2 class="hero-subtitle">Building Connected Systems & Optimizing Business Infrastructure</h2>
-                
-                <div class="typewriter-container">
-                    <span id="typewriter"></span><span class="cursor">|</span>
-                </div>
+    <main class="container">
+        <section style="padding: 100px 0;">
+            <h1>AUTOMATION & OPERATIONS<br><span style="color:var(--gold)">ARCHITECT</span></h1>
+            <div class="hero-text" id="typewriter"></div>
+            <p style="max-width: 600px; font-size: 1.2rem; color: #aaa;">Bridging AI integration with enterprise-grade operational infrastructure.</p>
+        </section>
 
-                <p class="hero-desc">
-                    Operational Specialist bridging technology and business strategy. Expertise in workflow automation, database management, data auditing, and digital infrastructure to eliminate operational bottlenecks, enforce compliance, and optimize business processes.
-                </p>
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/stanbanilao" target="_blank" class="social-btn">
-                        LinkedIn
-                    </a>
-                    <a href="https://www.tiktok.com/@stanmcfast" target="_blank" class="social-btn">
-                        TikTok
-                    </a>
-                </div>
+        <section class="marquee">
+            <div class="marquee-inner">
+                POWER AUTOMATE • MAKE.COM • SHAREPOINT • AI AUTOMATION • PYTHON • GOOGLE APPS SCRIPT • WHATSAPP API • SQL • PROMPT ENGINEERING
             </div>
         </section>
 
-        <section id="capabilities" class="section-padding container">
-            <h2 class="section-title">Core Capabilities</h2>
-            <div class="grid-4">
-                <div class="card">
-                    <h3>Workflow Automation & Orchestration</h3>
-                    <p>Power Automate, Webhooks, WhatAuto.</p>
-                </div>
-                <div class="card">
-                    <h3>Data Infrastructure & Management</h3>
-                    <p>SharePoint, Microsoft 365, Firebase, GitHub, Google Apps Script.</p>
-                </div>
-                <div class="card">
-                    <h3>Communications Architecture</h3>
-                    <p>WhatsApp Business API integration, automated routing pipelines.</p>
-                </div>
-                <div class="card">
-                    <h3>Industry Operations & Compliance</h3>
-                    <p>Process mapping, data auditing, statutory compliance frameworks (Form 17.1 and 17.W data management).</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section-padding container">
-            <h2 class="section-title">Experience & References</h2>
-            <div class="timeline">
-                
-                <div class="timeline-item">
-                    <div class="timeline-role">Automation & Systems Architect</div>
-                    <div class="timeline-company">Thynkverse (2022 - Present)</div>
-                    <p class="timeline-details">Designing growth ecosystems, managing full-stack digital assets, and deploying integrated operational workflows for digital brands.</p>
-                    <div class="timeline-ref">
-                        <strong>Reference:</strong> Founder & Lead Architect – View Live Operations at <a href="https://thynkverse.co.za" target="_blank" style="color:var(--accent-cyan)">thynkverse.co.za</a>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-role">Content Creator / Operations Manager</div>
-                    <div class="timeline-company">MBCOMMS / Control Debt Solutions / Premium Debt Solutions (2024 - 2025)</div>
-                    <p class="timeline-details">Designed custom SharePoint data infrastructures, built automated audit trails via Google Apps Script, and deployed Power Automate pipelines that cut case processing times and logistics administration.</p>
-                    <div class="timeline-ref">
-                        <strong>Reference:</strong> Moeneeb Reddy, Director | 072 932 0015
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-role">Production Assistant</div>
-                    <div class="timeline-company">MECAFE (2022 - 2023)</div>
-                    <p class="timeline-details">Handled operational coordination, workflow execution tracking, and structural efficiency support.</p>
-                    <div class="timeline-ref">
-                        <strong>Reference:</strong> Washeemah Isaacs, Co-owner | 083 943 0629
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-role">Operations & Compliance Manager</div>
-                    <div class="timeline-company">ALPHA GROUPS / Alpha Debt Management / My Debt Assistant / African Debt Advisor (2018 - 2024)</div>
-                    <p class="timeline-details">Managed critical regulatory operational workflows, executed high-volume compliance auditing, and optimized backend customer data routing pipelines.</p>
-                    <div class="timeline-ref">
-                        <strong>Reference:</strong> Areeb Johaar, Co-owner | 079 611 1816
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-role">Assistant Manager</div>
-                    <div class="timeline-company">MSA (2016 - 2018)</div>
-                    <p class="timeline-details">Foundational operational leadership, team shift coordination, and process supervisor execution.</p>
-                    <div class="timeline-ref">
-                        <strong>Reference:</strong> Moeghammad Lamara, Owner | 067 944 6566
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="projects" class="section-padding container">
-            <h2 class="section-title">Technical Projects</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>ThynkDebtTrack Client Portal</h3>
-                    <p>Automated client portal application for secure data ingestion, statutory tracking, and debt review processing.</p>
-                    <a href="https://www.remedydebts.co.za/portal/" target="_blank" class="project-link">View Portal</a>
-                </div>
-                <div class="card">
-                    <h3>Automated Audit Trail Engine</h3>
-                    <p>A custom integration using Google Apps Script to securely shoot data from live sheets directly into SharePoint infrastructure for real-time compliance logging.</p>
-                </div>
-                <div class="card">
-                    <h3>WhatsApp Automation Suite</h3>
-                    <p>An automated response and routing framework utilizing the WhatsApp Business API and mobile-optimized interfaces to accelerate communication response.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-padding container">
-            <h2 class="section-title">Creative & Personal Insights</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>Digital Media</h3>
-                    <p>Photography, video editing, and content design executing visual narratives.</p>
-                </div>
-                <div class="card">
-                    <h3>Strategic Thinking</h3>
-                    <p>Competitive gaming and tactical problem-solving requiring rapid decision making under pressure.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="marquee-wrapper">
-            <div class="marquee-content">
-                POWER AUTOMATE <span>•</span> MAKE.COM <span>•</span> SHAREPOINT <span>•</span> GOOGLE APPS SCRIPT <span>•</span> FIREBASE <span>•</span> GITHUB <span>•</span> WHATSAPP BUSINESS API <span>•</span> MICROSOFT 365 <span>•</span> POWER BI <span>•</span> AZURE <span>•</span> META ADS <span>•</span> SQL <span>•</span> AI AUTOMATION <span>•</span> PROMPT CONSULTANT <span>•</span> 
-                POWER AUTOMATE <span>•</span> MAKE.COM <span>•</span> SHAREPOINT <span>•</span> GOOGLE APPS SCRIPT <span>•</span> FIREBASE <span>•</span> GITHUB <span>•</span> WHATSAPP BUSINESS API <span>•</span> MICROSOFT 365 <span>•</span> POWER BI <span>•</span> AZURE <span>•</span> META ADS <span>•</span> SQL <span>•</span> AI AUTOMATION <span>•</span> PROMPT CONSULTANT
-            </div>
-        </section>
-
-        <section id="contact" class="section-padding container">
-            <h2 class="section-title">Initiate Contact</h2>
+        <section style="padding: 100px 0;">
+            <h2 style="text-align: center; margin-bottom: 3rem;">DIRECT ARCHITECT ACCESS</h2>
             <div class="contact-grid">
-                <div class="contact-methods">
-                    <a href="tel:0812795215" class="contact-btn">
-                        📞 Phone: 081 279 5215
-                    </a>
-                    <a href="https://wa.me/27812795215" target="_blank" class="contact-btn">
-                        💬 WhatsApp: 081 279 5215
-                    </a>
-                    <a href="https://wa.me/27826836364" target="_blank" class="contact-btn">
-                        💼 WhatsApp Business: 082 683 6364
-                    </a>
-                    <a href="mailto:stan@thynkverse.co.za" class="contact-btn">
-                        ✉️ stan@thynkverse.co.za
-                    </a>
-                </div>
-                
-                <form class="contact-form" onsubmit="event.preventDefault();">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea rows="5" placeholder="Message" required></textarea>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                <a href="tel:0812795215" class="contact-item"><i class="fas fa-phone"></i><span>Voice</span></a>
+                <a href="https://wa.me/27812795215" class="contact-item"><i class="fab fa-whatsapp"></i><span>Personal</span></a>
+                <a href="https://wa.me/27826836364" class="contact-item"><i class="fas fa-briefcase"></i><span>Business</span></a>
+                <a href="mailto:stan@thynkverse.co.za" class="contact-item"><i class="fas fa-envelope"></i><span>Email</span></a>
             </div>
         </section>
     </main>
 
     <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Robust Typewriter Effect
-        const phrases = [
-            'Automation Specialist', 
-            'Systems Optimizer', 
-            'Data Operations Lead', 
-            'Compliance Infrastructure Specialist'
-        ];
-        
-        const textElement = document.getElementById('typewriter');
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        
+        const phrases = ['Automation Specialist', 'AI Integration Expert', 'App Developer', 'Data Operations Lead'];
+        let i = 0, j = 0;
         function type() {
-            const currentPhrase = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                textElement.innerText = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.innerText = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            
-            let typeSpeed = isDeleting ? 50 : 100;
-            
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                typeSpeed = 2000; // Pause at end of phrase
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length; // Safe boundary check
-                typeSpeed = 500; // Pause before typing next
-            }
-            
-            setTimeout(type, typeSpeed);
+            document.getElementById('typewriter').innerText = phrases[i].substring(0, j);
+            j < phrases[i].length ? j++ : (j = 0, i = (i + 1) % phrases.length);
+            setTimeout(type, 150);
         }
-        
-        // Start typing effect on load
-        setTimeout(type, 1000);
-
-        // Blinking cursor
-        setInterval(() => {
-            const cursor = document.querySelector('.cursor');
-            if(cursor) {
-                cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
-            }
-        }, 500);
+        type();
     </script>
 </body>
 </html>
-
-```
