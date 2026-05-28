@@ -184,3 +184,9 @@ header {
 @media (max-width: 768px) {
     .container { padding: 0 1.5rem; }
     .bg-spot
+/* Force elements to be visible on mobile */
+    .reveal {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none !important;
+    }
