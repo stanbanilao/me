@@ -2,237 +2,37 @@
 <html lang="en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9X2KLBY2Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W9X2KLBY2Z');
-</script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W9X2KLBY2Z');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STAN | Automation & Digital Operations Specialist</title>
+    <meta name="description" content="STAN — Automation & Digital Operations Specialist based in Cape Town, South Africa. Workflow automation, data infrastructure, compliance systems, and AI integration.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300d2ff%22 font-family=%22sans-serif%22 font-weight=%22900%22>S</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-base: #030305;
-            --glass: rgba(255, 255, 255, 0.02);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --neon: #00d2ff;
-            --neon-dim: rgba(0, 210, 255, 0.4);
-            --gold: #d4af37;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background-color: var(--bg-base); 
-            color: var(--text-main); 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.7;
-            scroll-behavior: smooth;
-        }
-
-        /* --- Interactive Tech Background --- */
-        .bg-grid {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -2;
-        }
-
-        .bg-spotlight {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: radial-gradient(circle 600px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(0, 210, 255, 0.06), transparent 40%);
-            z-index: -1;
-            pointer-events: none;
-            will-change: background;
-        }
-
-        h1, h2, h3, .logo { font-family: 'Outfit', sans-serif; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        
-        .glow-text:hover { color: var(--neon); text-shadow: 0 0 10px var(--neon-dim); }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
-        /* --- Sticky Header --- */
-        header {
-            position: fixed;
-            top: 0; width: 100%; height: 80px;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(3, 3, 5, 0.85);
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
-        }
-
-        .logo { 
-            font-size: 2.2rem; font-weight: 900; letter-spacing: 3px;
-            background: linear-gradient(90deg, #666 0%, #fff 50%, #666 100%);
-            background-size: 200% auto; color: transparent;
-            -webkit-background-clip: text;
-            animation: shine 3.5s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
-
-        .nav-wrapper { display: flex; align-items: center; gap: 2rem; }
-        .nav-links { display: flex; gap: 1.5rem; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a:hover { color: var(--neon); text-shadow: 0 0 10px var(--neon-dim); }
-
-        .icon-link { 
-            font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
-            width: 40px; height: 40px; border-radius: 8px;
-            background: var(--glass); border: 1px solid var(--glass-border);
-        }
-        .icon-link:hover { 
-            color: var(--neon); border-color: var(--neon);
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2); transform: translateY(-2px); 
-        }
-
-        .mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
-
-        /* Hero Section */
-        .hero { padding: 180px 0 100px; }
-        .hero h1 { font-size: clamp(2.2rem, 4.5vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-weight: 900; }
-        .hero-text { color: var(--neon); font-size: clamp(1.4rem, 2vw, 1.8rem); margin-bottom: 2.5rem; height: 3rem; font-weight: 600; font-family: 'Outfit', sans-serif; letter-spacing: 1px; }
-        .hero-desc { max-width: 750px; font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; }
-
-        /* Glassmorphism Cards */
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            padding: 2.5rem; border-radius: 16px;
-            position: relative; overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
-        }
-        .glass-card:hover {
-            border-color: rgba(0, 210, 255, 0.5);
-            box-shadow: 0 5px 30px rgba(0, 210, 255, 0.15);
-            transform: translateY(-8px);
-        }
-        .glass-card h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1.3rem; letter-spacing: 0.5px; transition: 0.3s; }
-        .glass-card:hover h3 { color: var(--neon); text-shadow: 0 0 8px var(--neon-dim); }
-
-        .capability-icon { font-size: 2.5rem; color: var(--neon); margin-bottom: 1.5rem; display: inline-block; animation: float 4s ease-in-out infinite; }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0px); } }
-
-        /* Scroll Reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(60px);
-            will-change: transform, opacity;
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        .grid-4 .reveal:nth-child(1), .grid-3 .reveal:nth-child(1), .grid-2 .reveal:nth-child(1) { transition-delay: 0.1s; }
-        .grid-4 .reveal:nth-child(2), .grid-3 .reveal:nth-child(2), .grid-2 .reveal:nth-child(2) { transition-delay: 0.2s; }
-        .grid-4 .reveal:nth-child(3), .grid-3 .reveal:nth-child(3) { transition-delay: 0.3s; }
-        .grid-4 .reveal:nth-child(4) { transition-delay: 0.4s; }
-
-        /* Grids */
-        .section-padding { padding: 100px 0; }
-        .section-title { font-size: 3rem; margin-bottom: 4rem; text-align: center; color: #fff; font-weight: 800; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-
-        /* Timeline Specifics */
-        .timeline { position: relative; max-width: 950px; margin: 0 auto; }
-        .timeline::before { content: ''; position: absolute; left: 20px; top: 0; height: 100%; width: 1px; background: rgba(255, 255, 255, 0.15); }
-        .timeline-item { position: relative; padding-left: 60px; margin-bottom: 3rem; }
-        .timeline-item::before { content: ''; position: absolute; left: 15px; top: 35px; width: 11px; height: 11px; border-radius: 50%; background: var(--neon); box-shadow: 0 0 15px var(--neon); }
-        .timeline-role { font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.3rem;}
-        .timeline-company { color: var(--gold); font-weight: 600; margin-bottom: 1.2rem; font-size: 0.95rem; letter-spacing: 1px;}
-        .timeline-ref { font-size: 0.9rem; background: rgba(0, 0, 0, 0.3); padding: 1rem; border-left: 2px solid var(--gold); margin-top: 1.5rem; color: #cbd5e1; border-radius: 0 8px 8px 0; }
-
-        .project-link { display: inline-flex; align-items: center; margin-top: 1.5rem; color: var(--neon); font-weight: 600; font-family: 'Outfit', sans-serif; letter-spacing: 1px; }
-        .project-link:hover { text-shadow: 0 0 12px var(--neon); transform: translateX(5px); }
-
-        /* Marquee */
-        .marquee { overflow: hidden; white-space: nowrap; padding: 3rem 0; border-top: 1px solid rgba(212, 175, 55, 0.15); border-bottom: 1px solid rgba(212, 175, 55, 0.15); background: rgba(10,10,12,0.6); margin: 80px 0; }
-        .marquee-inner { display: inline-block; animation: scroll 35s linear infinite; font-size: 1.4rem; font-family: 'Outfit', sans-serif; font-weight: 800; color: #475569; letter-spacing: 3px; }
-        .marquee-inner span { margin: 0 2.5rem; color: var(--gold); }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* Contact Section */
-        .contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
-        .contact-methods { display: flex; flex-direction: column; gap: 1.5rem; }
-        .contact-item { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; text-align: left; }
-        .contact-item i { font-size: 2rem; color: var(--gold); transition: 0.3s; }
-        .contact-item:hover i { color: var(--neon); filter: drop-shadow(0 0 10px var(--neon));}
-        .contact-item span { font-size: 1.1rem; font-weight: 600; color: #fff; transition: 0.3s; }
-        .contact-item:hover span { color: var(--neon); }
-        .contact-item small { display: block; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem; }
-
-        .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
-        .form-input { width: 100%; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); padding: 1.2rem; border-radius: 12px; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; transition: 0.3s; }
-        .form-input:focus { outline: none; border-color: var(--neon); background: rgba(0, 210, 255, 0.03); box-shadow: 0 0 15px rgba(0, 210, 255, 0.1); }
-        .submit-btn { background: transparent; color: var(--neon); border: 1px solid var(--neon); padding: 1.2rem; border-radius: 12px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px; }
-        .submit-btn:hover { background: var(--neon); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.4); }
-
-        /* --- MOBILE OPTIMIZATIONS --- */
-        @media (max-width: 900px) {
-            .contact-container { grid-template-columns: 1fr; gap: 2rem; }
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 0 1.5rem; }
-            .bg-spotlight { display: none; }
-            
-            /* Reduced padding specifically for mobile boxes to stop bloat */
-            .glass-card { 
-                padding: 1.5rem; 
-                backdrop-filter: blur(8px); 
-                -webkit-backdrop-filter: blur(8px); 
-            }
-            
-            .grid-4 .reveal:nth-child(n), .grid-3 .reveal:nth-child(n), .grid-2 .reveal:nth-child(n) { transition-delay: 0s; }
-
-            .nav-links {
-                display: none; position: absolute; top: 80px; left: 0; width: 100%;
-                background: rgba(3, 3, 5, 0.98); flex-direction: column; padding: 2rem;
-                text-align: center; border-bottom: 1px solid var(--glass-border);
-            }
-            .nav-links.active { display: flex; }
-            .mobile-menu-btn { display: block; }
-            
-            .hero { padding: 120px 0 60px; }
-            .hero h1 { font-size: 2rem; }
-            .hero-text { font-size: 1.2rem; height: auto; margin-bottom: 1.5rem; }
-            .hero-desc { font-size: 1rem; }
-            
-            .section-padding { padding: 60px 0; }
-            .section-title { font-size: 2.2rem; margin-bottom: 2.5rem; }
-
-            .timeline::before { left: 10px; }
-            .timeline-item { padding-left: 35px; }
-            .timeline-item::before { left: 4px; top: 25px; }
-            
-            header { padding: 0 1.5rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Animated Background Layers -->
+    <div class="bg-deep"></div>
     <div class="bg-grid"></div>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
     <div class="bg-spotlight" id="spotlight"></div>
 
+    <!-- Header -->
     <header>
-        <div class="container" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+        <div class="header-inner">
             <a href="#" class="logo">STAN</a>
-            
             <div class="nav-wrapper">
                 <nav class="nav-links" id="nav-links">
                     <a href="#capabilities">Capabilities</a>
@@ -240,44 +40,63 @@
                     <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
                 </nav>
-                <a href="https://www.linkedin.com/in/stanbanilao" target="_blank" class="icon-link"><i class="fab fa-linkedin-in"></i></a>
-                <button class="mobile-menu-btn" id="mobile-btn"><i class="fas fa-bars"></i></button>
+                <a href="https://www.linkedin.com/in/stanbanilao" target="_blank" class="icon-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <button class="mobile-menu-btn" id="mobile-btn" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="hero container reveal">
-            <h1>AUTOMATION & DIGITAL OPERATIONS SPECIALIST<br><span style="color:var(--gold)">| AI INTEGRATION & APP DEVELOPMENT</span></h1>
-            
-            <div class="hero-text">
-                <span id="typewriter"></span><span class="cursor" style="color:#fff;">|</span>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="reveal reveal-up">
+                <div class="hero-badge">Cape Town, South Africa</div>
+                <h1>AUTOMATION &<br>DIGITAL OPERATIONS<br><span class="hero-accent">SPECIALIST</span></h1>
+                <div class="hero-sub">
+                    <span class="hero-pipe">|</span>
+                    <span>AI INTEGRATION & APP DEVELOPMENT</span>
+                </div>
             </div>
-
-            <p class="hero-desc">
+            <div class="hero-text reveal reveal-up" style="--delay: 0.2s">
+                <span id="typewriter"></span><span class="cursor">|</span>
+            </div>
+            <p class="hero-desc reveal reveal-up" style="--delay: 0.4s">
                 Operational Specialist bridging technology and business strategy. Expertise in workflow automation, database management, data auditing, and digital infrastructure to eliminate operational bottlenecks, enforce compliance, and optimize business processes.
             </p>
+            <div class="hero-cta reveal reveal-up" style="--delay: 0.6s">
+                <a href="#contact" class="btn-primary">Let's Connect</a>
+                <a href="#capabilities" class="btn-ghost">View Capabilities</a>
+            </div>
         </section>
 
+        <!-- Capabilities Section -->
         <section id="capabilities" class="section-padding container">
-            <h2 class="section-title reveal glow-text">Core Capabilities</h2>
+            <h2 class="section-title reveal reveal-up">Core Capabilities</h2>
             <div class="grid-4">
-                <div class="glass-card reveal">
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.1s">
+                    <div class="card-glow"></div>
                     <i class="fas fa-cogs capability-icon"></i>
                     <h3>Workflow Automation</h3>
                     <p>Power Automate, Webhooks, WhatAuto orchestration.</p>
                 </div>
-                <div class="glass-card reveal">
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.2s">
+                    <div class="card-glow"></div>
                     <i class="fas fa-database capability-icon"></i>
                     <h3>Data Infrastructure</h3>
                     <p>SharePoint, Microsoft 365, Firebase, GitHub, Google Apps Script.</p>
                 </div>
-                <div class="glass-card reveal">
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.3s">
+                    <div class="card-glow"></div>
                     <i class="fas fa-network-wired capability-icon"></i>
                     <h3>Communications Architecture</h3>
                     <p>WhatsApp Business API integration, automated routing pipelines.</p>
                 </div>
-                <div class="glass-card reveal">
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.4s">
+                    <div class="card-glow"></div>
                     <i class="fas fa-shield-alt capability-icon"></i>
                     <h3>Operations & Compliance</h3>
                     <p>Process mapping, data auditing, statutory compliance frameworks (Form 17.1 / 17.W).</p>
@@ -285,24 +104,27 @@
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience" class="section-padding container">
-            <h2 class="section-title reveal glow-text">Experience & References</h2>
+            <h2 class="section-title reveal reveal-up">Experience & References</h2>
             <div class="timeline">
                 
-                <div class="timeline-item reveal">
+                <div class="timeline-item reveal reveal-left" style="--delay: 0.1s">
                     <div class="glass-card">
-                        <div class="timeline-role glow-text">Automation & Systems Architect</div>
+                        <div class="card-glow"></div>
+                        <div class="timeline-role">Automation & Systems Architect</div>
                         <div class="timeline-company">Thynkverse (2022 - Present)</div>
                         <p>Designing growth ecosystems, managing full-stack digital assets, and deploying integrated operational workflows for digital brands.</p>
                         <div class="timeline-ref">
-                            <strong>Reference:</strong> Founder & Lead Architect – View Live Operations at <a href="https://thynkverse.co.za" target="_blank" class="glow-text" style="color:var(--neon)">thynkverse.co.za</a>
+                            <strong>Reference:</strong> Founder & Lead Architect – View Live Operations at <a href="https://thynkverse.co.za" target="_blank" class="link-glow">thynkverse.co.za</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="timeline-item reveal">
+                <div class="timeline-item reveal reveal-left" style="--delay: 0.15s">
                     <div class="glass-card">
-                        <div class="timeline-role glow-text">Content Creator / Operations Manager</div>
+                        <div class="card-glow"></div>
+                        <div class="timeline-role">Content Creator / Operations Manager</div>
                         <div class="timeline-company">MBCOMMS / Control Debt Solutions / Premium Debt Solutions (2024 - 2025)</div>
                         <p>Designed custom SharePoint data infrastructures, built automated audit trails via Google Apps Script, and deployed Power Automate pipelines that cut case processing times and logistics administration.</p>
                         <div class="timeline-ref">
@@ -311,9 +133,10 @@
                     </div>
                 </div>
 
-                <div class="timeline-item reveal">
+                <div class="timeline-item reveal reveal-left" style="--delay: 0.2s">
                     <div class="glass-card">
-                        <div class="timeline-role glow-text">Production Assistant</div>
+                        <div class="card-glow"></div>
+                        <div class="timeline-role">Production Assistant</div>
                         <div class="timeline-company">MECAFE (2022 - 2023)</div>
                         <p>Handled operational coordination, workflow execution tracking, and structural efficiency support.</p>
                         <div class="timeline-ref">
@@ -322,9 +145,10 @@
                     </div>
                 </div>
 
-                <div class="timeline-item reveal">
+                <div class="timeline-item reveal reveal-left" style="--delay: 0.25s">
                     <div class="glass-card">
-                        <div class="timeline-role glow-text">Operations & Compliance Manager</div>
+                        <div class="card-glow"></div>
+                        <div class="timeline-role">Operations & Compliance Manager</div>
                         <div class="timeline-company">ALPHA GROUPS / Alpha Debt Management / My Debt Assistant (2018 - 2024)</div>
                         <p>Managed critical regulatory operational workflows, executed high-volume compliance auditing, and optimized backend customer data routing pipelines.</p>
                         <div class="timeline-ref">
@@ -333,9 +157,10 @@
                     </div>
                 </div>
 
-                <div class="timeline-item reveal">
+                <div class="timeline-item reveal reveal-left" style="--delay: 0.3s">
                     <div class="glass-card">
-                        <div class="timeline-role glow-text">Assistant Manager</div>
+                        <div class="card-glow"></div>
+                        <div class="timeline-role">Assistant Manager</div>
                         <div class="timeline-company">MSA (2016 - 2018)</div>
                         <p>Foundational operational leadership, team shift coordination, and process supervisor execution.</p>
                         <div class="timeline-ref">
@@ -347,73 +172,90 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="section-padding container">
-            <h2 class="section-title reveal glow-text">Technical Projects</h2>
+            <h2 class="section-title reveal reveal-up">Technical Projects</h2>
             <div class="grid-3">
-                <div class="glass-card reveal">
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.1s">
+                    <div class="card-glow"></div>
                     <h3>ThynkDebtTrack Client Portal</h3>
                     <p>Automated client portal application for secure data ingestion, statutory tracking, and debt review processing.</p>
-                    <a href="https://www.remedydebts.co.za/portal/" target="_blank" class="project-link">View Portal &rarr;</a>
+                    <a href="https://www.remedydebts.co.za/portal/" target="_blank" class="project-link">View Portal <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="glass-card reveal">
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.2s">
+                    <div class="card-glow"></div>
                     <h3>Automated Audit Trail Engine</h3>
                     <p>A custom integration using Google Apps Script to securely shoot data from live sheets directly into SharePoint infrastructure for real-time compliance logging.</p>
                 </div>
-                <div class="glass-card reveal">
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.3s">
+                    <div class="card-glow"></div>
                     <h3>WhatsApp Automation Suite</h3>
                     <p>An automated response and routing framework utilizing the WhatsApp Business API and mobile-optimized interfaces to accelerate communication response.</p>
                 </div>
             </div>
         </section>
 
+        <!-- Creative Section -->
         <section class="section-padding container">
-            <h2 class="section-title reveal glow-text">Creative & Personal Insights</h2>
+            <h2 class="section-title reveal reveal-up">Creative & Personal Insights</h2>
             <div class="grid-2">
-                <div class="glass-card reveal">
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.1s">
+                    <div class="card-glow"></div>
                     <h3>Digital Media</h3>
                     <p>Photography, video editing, and content design executing visual narratives.</p>
                 </div>
-                <div class="glass-card reveal">
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.2s">
+                    <div class="card-glow"></div>
                     <h3>Strategic Thinking</h3>
                     <p>Competitive gaming and tactical problem-solving requiring rapid decision making under pressure.</p>
                 </div>
             </div>
         </section>
 
-        <section class="marquee reveal">
+        <!-- Marquee -->
+        <section class="marquee reveal reveal-up">
             <div class="marquee-inner">
-                POWER AUTOMATE <span>•</span> MAKE.COM <span>•</span> SHAREPOINT <span>•</span> GOOGLE APPS SCRIPT <span>•</span> FIREBASE <span>•</span> GITHUB <span>•</span> WHATSAPP BUSINESS API <span>•</span> MICROSOFT 365 <span>•</span> POWER BI <span>•</span> AZURE <span>•</span> META ADS <span>•</span> SQL <span>•</span> AI AUTOMATION <span>•</span> PROMPT CONSULTANT <span>•</span>
-                POWER AUTOMATE <span>•</span> MAKE.COM <span>•</span> SHAREPOINT <span>•</span> GOOGLE APPS SCRIPT <span>•</span> FIREBASE <span>•</span> GITHUB <span>•</span> WHATSAPP BUSINESS API <span>•</span> MICROSOFT 365 <span>•</span> POWER BI <span>•</span> AZURE <span>•</span> META ADS <span>•</span> SQL <span>•</span> AI AUTOMATION <span>•</span> PROMPT CONSULTANT
+                <span class="marquee-content">
+                    POWER AUTOMATE <span class="dot">&#x2022;</span> MAKE.COM <span class="dot">&#x2022;</span> SHAREPOINT <span class="dot">&#x2022;</span> GOOGLE APPS SCRIPT <span class="dot">&#x2022;</span> FIREBASE <span class="dot">&#x2022;</span> GITHUB <span class="dot">&#x2022;</span> WHATSAPP BUSINESS API <span class="dot">&#x2022;</span> MICROSOFT 365 <span class="dot">&#x2022;</span> POWER BI <span class="dot">&#x2022;</span> AZURE <span class="dot">&#x2022;</span> META ADS <span class="dot">&#x2022;</span> SQL <span class="dot">&#x2022;</span> AI AUTOMATION <span class="dot">&#x2022;</span> PROMPT CONSULTANT <span class="dot">&#x2022;</span>
+                </span>
+                <span class="marquee-content" aria-hidden="true">
+                    POWER AUTOMATE <span class="dot">&#x2022;</span> MAKE.COM <span class="dot">&#x2022;</span> SHAREPOINT <span class="dot">&#x2022;</span> GOOGLE APPS SCRIPT <span class="dot">&#x2022;</span> FIREBASE <span class="dot">&#x2022;</span> GITHUB <span class="dot">&#x2022;</span> WHATSAPP BUSINESS API <span class="dot">&#x2022;</span> MICROSOFT 365 <span class="dot">&#x2022;</span> POWER BI <span class="dot">&#x2022;</span> AZURE <span class="dot">&#x2022;</span> META ADS <span class="dot">&#x2022;</span> SQL <span class="dot">&#x2022;</span> AI AUTOMATION <span class="dot">&#x2022;</span> PROMPT CONSULTANT <span class="dot">&#x2022;</span>
+                </span>
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="section-padding container">
-            <h2 class="section-title reveal glow-text">Let's Optimize Your Infrastructure</h2>
+            <h2 class="section-title reveal reveal-up">Let's Optimize Your Infrastructure</h2>
             
             <div class="contact-container">
-                <div class="contact-methods reveal">
-                    <a href="tel:0812795215" class="glass-card contact-item">
+                <div class="contact-methods">
+                    <a href="tel:0812795215" class="glass-card contact-item reveal reveal-3d" style="--delay: 0.1s">
+                        <div class="card-glow"></div>
                         <i class="fas fa-phone"></i>
                         <div>
                             <span>Voice Call</span>
                             <small>081 279 5215</small>
                         </div>
                     </a>
-                    <a href="https://wa.me/27812795215" target="_blank" class="glass-card contact-item">
+                    <a href="https://wa.me/27812795215" target="_blank" class="glass-card contact-item reveal reveal-3d" style="--delay: 0.2s">
+                        <div class="card-glow"></div>
                         <i class="fab fa-whatsapp"></i>
                         <div>
                             <span>Personal WhatsApp</span>
                             <small>081 279 5215</small>
                         </div>
                     </a>
-                    <a href="https://wa.me/27826836364" target="_blank" class="glass-card contact-item">
+                    <a href="https://wa.me/27826836364" target="_blank" class="glass-card contact-item reveal reveal-3d" style="--delay: 0.3s">
+                        <div class="card-glow"></div>
                         <i class="fas fa-briefcase"></i>
                         <div>
                             <span>Business WhatsApp</span>
                             <small>082 683 6364</small>
                         </div>
                     </a>
-                    <a href="mailto:stan@thynkverse.co.za" class="glass-card contact-item">
+                    <a href="mailto:stan@thynkverse.co.za" class="glass-card contact-item reveal reveal-3d" style="--delay: 0.4s">
+                        <div class="card-glow"></div>
                         <i class="fas fa-envelope"></i>
                         <div>
                             <span>Direct Email</span>
@@ -422,88 +264,36 @@
                     </a>
                 </div>
 
-                <div class="glass-card reveal">
-                    <h3 style="color: #fff; margin-bottom: 1.5rem;">Send a Message</h3>
+                <div class="glass-card reveal reveal-3d" style="--delay: 0.3s">
+                    <div class="card-glow"></div>
+                    <h3 style="color: #fff; margin-bottom: 1.5rem; font-size: 1.4rem;">Send a Message</h3>
                     <form class="contact-form" onsubmit="event.preventDefault(); alert('Message feature ready to connect to Make.com/Power Automate!');">
                         <input type="text" class="form-input" placeholder="Your Name" required>
                         <input type="email" class="form-input" placeholder="Your Email Address" required>
                         <textarea class="form-input" rows="5" placeholder="How can we optimize your systems?" required></textarea>
-                        <button type="submit" class="submit-btn">Initiate Connection</button>
+                        <button type="submit" class="submit-btn">
+                            <span>Initiate Connection</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <script>
-        if (window.innerWidth > 768) {
-            const spotlight = document.getElementById('spotlight');
-            window.addEventListener('mousemove', (e) => {
-                spotlight.style.setProperty('--mouse-x', `${e.clientX}px`);
-                spotlight.style.setProperty('--mouse-y', `${e.clientY}px`);
-            });
-        }
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <span class="logo footer-logo">STAN</span>
+            <p>&copy; 2026 STAN. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/stanbanilao" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:stan@thynkverse.co.za"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/27812795215" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
 
-        const mobileBtn = document.getElementById('mobile-btn');
-        const navLinks = document.getElementById('nav-links');
-        mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                } else {
-                    entry.target.classList.remove('active');
-                }
-            });
-        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        const phrases = [
-            'Automation Specialist', 
-            'Systems Optimizer', 
-            'Data Operations Lead', 
-            'Compliance Infrastructure Specialist'
-        ];
-        const textElement = document.getElementById('typewriter');
-        let phraseIndex = 0; let charIndex = 0; let isDeleting = false;
-        
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) {
-                textElement.innerText = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.innerText = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            let typeSpeed = isDeleting ? 40 : 80;
-            
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                typeSpeed = 2500;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500;
-            }
-            setTimeout(type, typeSpeed);
-        }
-        setTimeout(type, 1000);
-
-        setInterval(() => {
-            const cursor = document.querySelector('.cursor');
-            if(cursor) cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
-        }, 500);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
